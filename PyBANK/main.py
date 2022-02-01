@@ -14,33 +14,36 @@ data = file[1:]
 #determine total of months count them all, what is size of data
 total_months = len(data)
 net_amount = 0
-profit_los_column=[]
+profit_loss_column = []
 
 for row in data:
     #net_amount = net_amount + in(row[1])
     net_amount += int(row[1])
     profit_loss_column.append(int(row[1]))
 
-#average_change = round
+#average_change = round((net_amount / total_months),2)
 
 #the greatest increase in profits
 greatest_inc = max(profit_loss_column)
 date_inc = data[profit_loss_column.index(greatest_inc)][0]
-greatest_dec = min(profit_loss_column.index)
+greatest_dec = min(profit_loss_column)
+date_dec = [profit_loss_column.index(greatest_dec)] [0]
 
 #output
 print(f"Financial Analysis")
-print(f"-*28")
+print(f"-"*28)
 print(f"Total Months: {total_months}")
-print(f"Total : $[net_amount")
-print(f"Greatest ")
-
+print(f"Total : ${net_amount}")
+print(f"Greatest Increase in Profits: {date_inc} (${greatest_inc}) ")
+print(f"Greatest Decrease in Profits: {date_dec}(${greatest_dec}")
 
 
 f = open("Pybankdata.txt",'w')
 f.write("Financial Analysis\n")
 f.write(f"-28")
 f.write("\n")
-f.write("Total Months : {total_months}\n")
-
+f.write(f"Total Months : {total_months}\n")
+f.write(f"Total : ${net_amount}")
+f.write(f"Greatest Increase in Profits: {date_inc} (${greatest_inc})")
+f.write(f"Greatest Decrease in Profits: {date_dec} (${greatest_dec})")
 f.close()
