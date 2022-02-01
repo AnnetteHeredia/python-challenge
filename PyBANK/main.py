@@ -10,6 +10,12 @@ file = open(path)
 file = list (reader(file))
 #dont start with header just data
 data = file[1:]
+# Started the context manager see mainpoll.py for example. 
+# with open (path,"r") as file2:
+#     csv_reader = reader(file2, delimiter=",")
+
+#     header = next(csv_reader)
+
 
 #determine total of months count them all, what is size of data
 total_months = len(data)
